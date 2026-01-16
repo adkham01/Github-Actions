@@ -1,0 +1,17 @@
+name: conditionals-example
+
+on: [push]
+
+jobs:
+  hello-conditionals:
+    if: github.repository == 'octo-org/octo-org-prod'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Hello Conditionals"
+        run: echo "Hello Conditionals"
+  
+  goodbye-friday:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Good bye Friday"
+        run: echo "Good bye Friday"
