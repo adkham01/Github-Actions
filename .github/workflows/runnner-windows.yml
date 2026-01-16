@@ -1,0 +1,33 @@
+name: Windows Workflow
+
+on:
+    push:
+        branches: 
+          - main
+
+jobs:
+    build-and-test:
+        runs-on: windows-latest
+        
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v3
+
+          - name: Install dependencies
+            run: choco install dotnetcore-sdk
+            shell: powershell
+
+          - name: Compile and run C# program
+            run: |
+              Add Content -Path "Hello.cs" -Value @"
+              using System;
+              public class Hello {
+                public static void Main(){
+                  Console.Writeline("Hello, Windows from C#");
+                }
+              } 
+              "@
+              dotnet new console --force --no-restore  
+              Move-Item -Path "Hello.cs" -destination "Program.cs" -Forse
+              dotnet run
+            shell: powershell  
