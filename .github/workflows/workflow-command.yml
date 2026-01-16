@@ -1,4 +1,4 @@
-name: Wrkflow-Commands
+name: 'Wrkflow-Commands'
 
 on:
   push: 
@@ -9,7 +9,7 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 2 Group logging 
+      - name: Step 1 Group logging 
         run: |
           echo "::group:: Group Message"
           echo "Message 1"
@@ -20,7 +20,6 @@ jobs:
         run: | 
           echo "MY_VAL=hello" >> $GITHUB_ENV
 
-      - name: "Step 3"  
+      - name: Step 3
         run: | 
-          echo $MY_VAL
-
+          echo "$MY_VAL"
