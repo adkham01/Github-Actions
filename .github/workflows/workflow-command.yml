@@ -18,9 +18,9 @@ jobs:
 
       - name: Step 2
         run: | 
-          echo "MY_VALUE=hello" >> $GITHUB_ENV
+          echo "MY_VAL=hello" >> $GITHUB_ENV
 
       - name: "Step 3"  
         run: | 
-          echo $MY_VALUE
+          echo $MY_VAL
 
