@@ -2,3 +2,5 @@ shcedulled workflow
 multi event workflow
 manual events
 webhook events
+conditionals
+Expressions -> success(), always(), cancelled(), failure(), toJSON(), hashFiles()
