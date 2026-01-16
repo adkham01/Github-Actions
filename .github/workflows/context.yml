@@ -1,0 +1,19 @@
+name: Context
+
+on: ['push']
+
+jobs:
+  my-context:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: First Step
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ACTOR: ${{ github.actor }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: | 
+          echo "Hello, Event: $EVENT_NAME"
+          echo "Actor: $ACTOR"
+          echo "Repository: $REPO"
+          echo "SHA: $SHA"
