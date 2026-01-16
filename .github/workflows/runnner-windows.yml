@@ -20,15 +20,16 @@ jobs:
 
       - name: Create and run Go program
         run: |
-          @"
-          package main
+          echo 'package main' > hello.go
+          echo '' >> hello.go
+          echo 'import "fmt"' >> hello.go
+          echo '' >> hello.go
+          echo 'func main() {' >> hello.go
+          echo '    fmt.Println("Hello, Windows from Go!")' >> hello.go
+          echo '}' >> hello.go
           
-          import "fmt"
+          cat hello.go
           
-          func main() {
-            fmt.Println("Hello, Windows from Go!")
-          }
-          "@ | Out-File -FilePath "hello.go"
-          
+          # Run the Go program
           go run hello.go
         shell: powershell
