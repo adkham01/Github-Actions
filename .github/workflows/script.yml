@@ -1,0 +1,17 @@
+name: 'Add Script toWorkflow'
+
+on: ['push']
+
+jobs:
+  script-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./scripts
+    steps:
+      - name: Check out the repo to the runner
+        uses: actions/checkout@v4
+      - name: Run a script
+        run: ./myscript.sh
+      - name: Run another script
+        run: ./my-other-script.sh

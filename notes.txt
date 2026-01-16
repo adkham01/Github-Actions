@@ -8,3 +8,7 @@ runners
 Self-Hosted Runner 
 Workflow Commands: 
 Dependend jobs:
+Encrypted Secrets
+Default Env Vars
+Set Custom Env Vars  
+Add Script to Workflow
