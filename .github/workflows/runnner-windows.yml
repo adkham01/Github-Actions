@@ -13,22 +13,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: choco install dotnet -y
-        shell: powershell
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
 
-      - name: Create, compile and run C# program
+      - name: Create and run Go program
         run: |
           @"
-          using System;
-          public class Hello {
-            public static void Main() {
-              Console.WriteLine("Hello, Windows from C#");
-            }
+          package main
+          
+          import "fmt"
+          
+          func main() {
+            fmt.Println("Hello, Windows from Go!")
           }
-          "@ | Out-File -FilePath "Hello.cs"
+          "@ | Out-File -FilePath "hello.go"
           
-          csc Hello.cs
-          
-          .\Hello.exe
+          go run hello.go
         shell: powershell
